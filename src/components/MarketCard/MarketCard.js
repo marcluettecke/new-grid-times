@@ -47,6 +47,7 @@ const MarketCard = ({
 
 const Wrapper = styled.a`
   display: block;
+  width: 100%;
   /* Optical alignment */
   padding: 6px 12px 8px;
   color: var(--color-gray-900);

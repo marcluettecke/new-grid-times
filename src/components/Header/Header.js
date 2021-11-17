@@ -29,16 +29,34 @@ const Header = () => {
         </Row>
       </SuperHeader>
       <MainHeader>
+        <DesktopActionGroup>
+            <button>
+              <Search size={24} />
+            </button>
+            <button>
+              <Menu size={24} />
+            </button>
+          </DesktopActionGroup>
         <Logo />
+        <SubscribeWrapper>
+          <Button>Subscribe</Button>
+          <SubLink href="/">Already a subscriber?</SubLink>
+        </SubscribeWrapper>
       </MainHeader>
     </header>
   );
 };
 
+
+
 const SuperHeader = styled.div`
   padding: 16px 0;
   background: var(--color-gray-900);
   color: white;
+  
+  @media ${p => p.theme.queries.laptopAndUp} {
+    display: none;
+  }
 `;
 
 const Row = styled(MaxWidthWrapper)`
@@ -59,12 +77,58 @@ const ActionGroup = styled.div`
   }
 `;
 
+const DesktopActionGroup = styled(ActionGroup)`
+  display: none;
+  
+  @media ${p => p.theme.queries.laptopAndUp} {
+    display: flex;
+  }
+`
+
+const SubscribeWrapper = styled.div`
+  display: none;
+  
+  @media ${QUERIES.laptopAndUp} {
+    display: revert;
+    justify-self: end;
+    position: relative;
+  }
+`
+
+const SubLink = styled.a`
+  position: absolute;
+  width: 100%;
+  margin-top: 8px;
+  text-align: center;
+  text-decoration: underline;
+  color: var(--color-gray-900);
+  font-size: 0.875rem;
+  font-style: italic;
+`
+
 const MainHeader = styled(MaxWidthWrapper)`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+  
+  
+  
+  @media ${p => p.theme.queries.laptopAndUp} {
+      margin-top: 48px;
+      margin-bottom: 72px;
+  }
+    
+    @media ${p => p.theme.queries.laptopAndUp} {
+    display: grid;
+    // both outer columns grow as wide as possible so they force the logo to the middle
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-items: start;
+    margin-top: 16px;
+    margin-bottom: 72px;
+  }
 `;
 
 export default Header;

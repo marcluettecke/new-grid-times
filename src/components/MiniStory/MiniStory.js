@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from "../../constants";
 
 const MiniStory = ({ id, image, title }) => {
   return (
@@ -23,6 +24,8 @@ const Image = styled.img`
   aspect-ratio: 220 / 132;
   object-fit: cover;
   border-radius: 4px;
+  
+    
 `;
 
 const Title = styled.h3`

@@ -19,12 +19,20 @@ const Wrapper = styled.article`
   color: var(--color-gray-900);
 `;
 
+
 const Avatar = styled.img`
   display: block;
   width: 48px;
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  margin-left: 16px;
+  float: right;
+  
+  @media ${p => p.theme.queries.tabletOnly}{
+    float: revert;
+    margin-left: revert;
+  }
 `;
 
 const AuthorName = styled.p`
